@@ -171,12 +171,21 @@ create policy "coordinators delete actions"
 on public.actions for delete to authenticated
 using (public.has_team_role(array['coordinator']::public.team_role[]));
 
--- Los hitos y las publicaciones se comparten entre miembros; coordinación administra borrados.
+-- Hitos: solo coordinación puede crear, modificar o borrar.
 create policy "team reads milestones" on public.milestones for select to authenticated using (public.is_active_team_member());
-create policy "team manages milestones" on public.milestones for all to authenticated using (public.has_team_role(array['coordinator']::public.team_role[])) with check (public.has_team_role(array['coordinator']::public.team_role[]));
+create policy "coordinators manage milestones" on public.milestones for all to authenticated
+using (public.has_team_role(array['coordinator']::public.team_role[]))
+with check (public.has_team_role(array['coordinator']::public.team_role[]));
 
+-- Publicaciones: el equipo activo puede consultar y proponer/editar; solo coordinación borra.
 create policy "team reads publications" on public.publications for select to authenticated using (public.is_active_team_member());
-create policy "team manages publications" on public.publications for all to authenticated using (public.is_active_team_member()) with check (public.is_active_team_member());
+create policy "team creates publications" on public.publications for insert to authenticated
+with check (public.is_active_team_member() and (created_by is null or created_by = (select auth.uid())));
+create policy "team updates publications" on public.publications for update to authenticated
+using (public.is_active_team_member())
+with check (public.is_active_team_member() and (created_by is null or created_by = (select auth.uid())));
+create policy "coordinators delete publications" on public.publications for delete to authenticated
+using (public.has_team_role(array['coordinator']::public.team_role[]));
 
 -- Información financiera: todos los miembros pueden consultar; solo coordinación/finanzas modifica.
 create policy "team reads sponsors" on public.sponsors for select to authenticated using (public.is_active_team_member());
@@ -190,7 +199,13 @@ using (public.has_team_role(array['coordinator','finance']::public.team_role[]))
 with check (public.has_team_role(array['coordinator','finance']::public.team_role[]));
 
 create policy "team reads evidence" on public.evidence for select to authenticated using (public.is_active_team_member());
-create policy "team manages evidence" on public.evidence for all to authenticated using (public.is_active_team_member()) with check (public.is_active_team_member());
+create policy "team creates evidence" on public.evidence for insert to authenticated
+with check (public.is_active_team_member() and (created_by is null or created_by = (select auth.uid())));
+create policy "team updates evidence" on public.evidence for update to authenticated
+using (public.is_active_team_member())
+with check (public.is_active_team_member() and (created_by is null or created_by = (select auth.uid())));
+create policy "coordinators delete evidence" on public.evidence for delete to authenticated
+using (public.has_team_role(array['coordinator']::public.team_role[]));
 
 -- Dar acceso de tabla a usuarios autenticados; RLS decide qué filas pueden usar.
 grant usage on schema public to authenticated;
