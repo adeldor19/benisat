@@ -121,3 +121,81 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 @media(max-width:1100px){.sidebar{width:220px}.main{margin-left:220px;padding:0 25px 22px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.three-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.sidebar{transform:translateX(-100%);transition:transform .22s;box-shadow:12px 0 30px #1e0a1128}.sidebar.open{transform:translateX(0)}.main{margin-left:0;padding:0 15px 20px}.topbar{height:61px;margin-bottom:24px}.mobile-menu{display:block;border:1px solid var(--line);border-radius:8px;background:white;color:var(--wine);width:35px;height:35px}.breadcrumbs{margin-right:auto;margin-left:11px;font-size:10px}.local-label{display:none}.page-heading{align-items:flex-start}.page-heading h1{font-size:29px}.intro{font-size:11px}.season{display:none}.hero{padding:25px 22px;min-height:263px;align-items:flex-start}.hero h2{font-size:25px}.hero p{max-width:92%;font-size:10px}.space-art{width:100%;height:115px;top:auto;bottom:-20px;right:-15%;opacity:.46;min-width:0}.planet{width:70px;height:70px;top:22px;right:95px}.o1{width:190px;height:95px;right:45px;top:12px}.o2{width:240px;height:125px;right:15px;top:1px}.satellite{top:10px;right:65px;transform:scale(.75) rotate(27deg)}.stats-grid{gap:9px}.stat-card{padding:13px}.stat-top{font-size:7px;letter-spacing:.3px}.stat-icon{width:23px;height:23px}.stat-card>strong{font-size:24px}.stat-card>p{font-size:9px}.stat-card>footer{font-size:8px}.section-heading h2,.panel-heading h2{font-size:16px}.muted-label{font-size:7px}.panel{padding:17px 14px}.panel-heading{align-items:flex-start}.milestone-status{display:none}.three-cards{grid-template-columns:1fr}.module-card{min-height:0}.task-form{flex-wrap:wrap}.task-form>*{min-height:39px}.task-form input:first-child{flex-basis:100%}.task-form select{flex:1}.primary-button{white-space:normal}.quick-form input{width:100%}.app-footer{gap:10px;font-size:7px}.app-footer span:nth-child(2){text-align:right}.mission-symbol{width:90px;height:90px;font-size:31px;margin-right:0;flex:none}.mission-symbol span{font-size:18px}.mission-hero .hero-text{max-width:77%}.mission-hero .hero-text p{max-width:100%}.budget-stats{grid-template-columns:1fr}.expense-amount{font-size:11px}.compact h1{font-size:28px}.date-tile{width:36px}.milestone-preview .milestone-copy strong{font-size:9px}.settings-actions>*{width:100%;text-align:center}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+
+/* ACCESIBILIDAD: contraste reforzado y lectura clara */
+:root{
+  --wine:#542033;
+  --wine-dark:#2d111d;
+  --wine-mid:#69283f;
+  --cream:#f4f1eb;
+  --paper:#ffffff;
+  --ink:#211d22;
+  --muted:#5d565c;
+  --line:#d8d0c8;
+  --gold:#e1bd7d;
+  --blue:#315c73;
+  --blue-light:#e5eef3;
+}
+body{color:var(--ink);background:#f2efe9;font-size:14px}
+.sidebar{background:#2d111d;color:#fff}
+.brand-copy small,.side-label,.sidebar-footer small{color:#e3d0d7}
+.nav-item{color:#f0e7eb}
+.nav-item.active{background:#71364b;color:#fff;box-shadow:inset 4px 0 #f0c982}
+.nav-item:hover{background:#ffffff1c;color:#fff}
+.breadcrumbs{color:#625b60}
+.breadcrumbs span{color:#82777d}
+.breadcrumbs strong{color:#211d22}
+.local-label{color:#4d5e55}
+.page-heading h1,.section-heading h2,.panel-heading h2,.module-card h3,.timeline-item h3{color:#211d22}
+.eyebrow{color:#69283f}
+.intro{color:#575158}
+.season small,.season span{color:#5e565b}
+.hero{background:linear-gradient(115deg,#4b1b2e 0%,#60263d 68%,#315c73 145%);color:#fff}
+.hero-kicker{color:#ffe0a5}
+.hero p{color:#fff}
+.hero-action{background:#fff0d5;color:#3e1728;font-weight:800}
+.stat-card,.panel,.module-card{background:#fff;color:#211d22;border-color:#dcd5cd}
+.stat-top{color:#575158}
+.stat-card>strong{color:#211d22}
+.stat-card>p,.stat-card>footer{color:#5d565c}
+.stat-card>footer{border-color:#e5ded7}
+.muted-label{color:#625a60}
+.text-link,.inline-link,.app-footer button{color:#63243b}
+.task-copy strong,.milestone-copy strong,.note-card strong,.document-copy strong,.expense-copy strong,.post-copy strong{color:#29232a}
+.task-copy small,.milestone-copy p,.note-card small,.document-copy small,.expense-copy small,.post-copy small{color:#625a60}
+.fine-print{color:#5f575c}
+.date-tile{background:#e5eef3;color:#244b61}
+.milestone-status{background:#f8e9c9;color:#684719}
+.milestone-status.muted{background:#eeeae5;color:#514b4e}
+.module-number,.module-card label{color:#625158}
+.module-card p{color:#575158}
+.pill{background:#f2e4e8;color:#542033}
+.pill-muted{background:#eeebe6;color:#514b4e}
+.notice{background:#eaf1f4;border-color:#c6d6de;color:#202b31}
+.notice strong{color:#202b31}
+.notice p{color:#394b54}
+.empty-state{color:#5e565b}
+.empty-state strong{color:#3d3037}
+.empty-state p{color:#625a60}
+.empty-copy{color:#5e565b}
+.timeline-date{color:#65535a}
+.document-row a{color:#542033;font-weight:700}
+.status-select{color:#34282f;border-color:#cfc6bf}
+.quick-form input,.task-form input,.task-form select,.note-form input,.note-form textarea{color:#211d22;background:#fff;border-color:#cfc6bf}
+.quick-form input::placeholder,.task-form input::placeholder,.note-form input::placeholder,.note-form textarea::placeholder{color:#6a6267;opacity:1}
+.quick-form input:focus,.task-form input:focus,.task-form select:focus,.note-form input:focus,.note-form textarea:focus{border-color:#69283f;box-shadow:0 0 0 3px #69283f20}
+.primary-button,.quick-form button{background:#542033;color:#fff}
+.primary-button:hover{background:#69283f}
+.filter-chip{color:#51494f}
+.filter-chip.selected{background:#f0e1e6;color:#4b172b;border-color:#cbaeb8}
+.priority.alta{color:#8b2935;background:#f8e2e3}
+.priority.media{color:#704a12;background:#f8ebcc}
+.priority.baja{color:#24563d;background:#e0eee5}
+.task-check{border-color:#8b7a80}
+.delete-btn{color:#6c5b61}
+.app-footer{color:#5f575c;border-color:#d8d0c8}
+.secondary-button{color:#29232a;border-color:#cfc6bf;background:#fff}
+.danger-button{color:#8b2935;border-color:#d6a7a9;background:#fff}
+#toast{background:#211820;color:#fff}
+@media(forced-colors:active){.nav-item.active,.primary-button,.quick-form button{border:1px solid ButtonText}}
