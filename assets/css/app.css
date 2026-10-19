@@ -199,3 +199,36 @@ body{color:var(--ink);background:#f2efe9;font-size:14px}
 .danger-button{color:#8b2935;border-color:#d6a7a9;background:#fff}
 #toast{background:#211820;color:#fff}
 @media(forced-colors:active){.nav-item.active,.primary-button,.quick-form button{border:1px solid ButtonText}}
+
+/* HOTFIX DE CONTRASTE: reglas finales para evitar texto claro sobre blanco */
+.sidebar{background:#2d111d!important;color:#fff!important}
+.sidebar .brand,.sidebar .brand-copy strong,.sidebar .nav-item.active{color:#fff!important}
+.sidebar .brand-copy small,.sidebar .side-label,.sidebar .sidebar-footer small{color:#eadde2!important}
+.sidebar .nav-item{color:#f5edf0!important}
+.sidebar .nav-item em{color:#fff!important}
+.sidebar .sidebar-footer strong{color:#fff!important}
+.main{color:#211d22}
+.topbar,.breadcrumbs,.breadcrumbs strong{color:#211d22}
+.page-heading h1,.page-heading h1 span,.section-heading h2,.panel-heading h2,.module-card h3,.timeline-item h3{color:#211d22}
+.page-heading .intro,.intro{color:#514a50!important}
+.hero{background:#4b1b2e!important;color:#fff!important}
+.hero .hero-text,.hero .hero-text h2,.hero .hero-text p{color:#fff!important}
+.hero .hero-kicker{color:#ffe0a5!important}
+.hero .hero-action{background:#fff0d5!important;color:#3e1728!important}
+.hero .space-art>small{color:#fff0dc!important}
+.stat-card,.panel,.module-card{background:#fff!important;color:#211d22!important}
+.stat-card .stat-top,.stat-card>p,.stat-card>footer,.muted-label{color:#514a50!important}
+.stat-card>strong,.panel-heading h2,.section-heading h2{color:#211d22!important}
+.milestone-copy strong,.task-copy strong,.note-card strong,.document-copy strong,.expense-copy strong,.post-copy strong{color:#211d22!important}
+.milestone-copy p,.task-copy small,.note-card p,.note-card small,.document-copy small,.expense-copy small,.post-copy small{color:#514a50!important}
+.eyebrow{color:#69283f!important}
+.fine-print,.timeline-date,.module-card p,.module-number,.module-card label{color:#514a50!important}
+.date-tile{background:#e5eef3!important;color:#244b61!important}
+.milestone-status{background:#f8e9c9!important;color:#684719!important}
+.text-link,.inline-link,.app-footer button,.document-row a{color:#542033!important}
+.quick-form input,.task-form input,.task-form select,.note-form input,.note-form textarea{background:#fff!important;color:#211d22!important;border-color:#bfb5b0!important}
+.quick-form input::placeholder,.task-form input::placeholder,.note-form input::placeholder,.note-form textarea::placeholder{color:#625a60!important;opacity:1!important}
+.primary-button,.quick-form button{background:#542033!important;color:#fff!important}
+.notice{background:#eaf1f4!important;color:#202b31!important}
+.notice strong,.notice p{color:#202b31!important}
+.app-footer{color:#514a50!important}
