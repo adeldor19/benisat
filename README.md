@@ -1,42 +1,31 @@
-# BENISAT Mission Control
+# BENISAT · Panel de control
 
-Sistema de coordinación del equipo BENISAT del IES Andrés Benítez para el reto CanSat Spain 2026–2027.
+Panel de gestión del equipo CanSat BENISAT para la temporada 2026–2027. Aplicación estática en HTML, CSS y JavaScript, sin servidor, cuenta de usuario, API ni base de datos.
 
-**Lema:** BENISAT · Misión: descubrir  
-**Identidad institucional:** De Jerez al espacio.
+## Empezar
+Abre `index.html` directamente con un navegador moderno. También puede publicarse como sitio estático con GitHub Pages, sin proceso de compilación.
 
-## Objetivo
+## Datos locales
+La aplicación guarda los datos en `localStorage` del navegador actual. Por tanto:
+- Los datos no se envían a ningún servidor ni se sincronizan con otros ordenadores.
+- Si se borra el almacenamiento del navegador, se puede perder la información.
+- Usa **Datos locales y copias** para descargar copias de seguridad JSON y restaurarlas.
+- Los movimientos económicos también se pueden exportar a CSV.
 
-Centralizar actuaciones, calendario, documentación, difusión, presupuesto, ventas y patrocinios en una aplicación web compartida por el equipo.
+No guardes información sensible ni confíes en el almacenamiento del navegador como única copia.
 
-## Arquitectura
+## Módulos iniciales
+- Inicio y resumen.
+- Tareas con prioridad, área y fecha límite.
+- Hitos y calendario editable.
+- Registro de documentación y enlaces.
+- Cuaderno de notas científicas.
+- Presupuesto con gastos, aportaciones y exportación CSV.
+- Ideas de difusión y estado de publicación.
+- Copia de seguridad e importación de datos.
 
-- **Frontend:** HTML, CSS y JavaScript estáticos, desplegables en GitHub Pages.
-- **Datos y autenticación:** Supabase (Postgres + Auth + Row Level Security).
-- **Documentos y evidencias:** Google Drive, enlazado desde los registros.
-- **Repositorio:** este proyecto, independiente de las cuentas personales para facilitar una futura transferencia.
+## Fechas CanSat
+Las fechas incluidas son de referencia inicial y deben verificarse con las comunicaciones oficiales de la convocatoria 2026–2027.
 
-## Principios de seguridad
-
-- No guardar contraseñas, claves `service_role`, tokens ni secretos en este repositorio.
-- La clave pública `anon`/publishable puede usarse en el frontend únicamente con RLS habilitado y políticas correctamente configuradas.
-- No almacenar datos personales de alumnado que no sean necesarios.
-- Cada persona debe usar su propia cuenta; no compartir credenciales.
-- Las evidencias y documentos deben tener permisos de acceso restringidos.
-
-## Estructura prevista
-
-- `index.html`: aplicación web.
-- `assets/css/app.css`: estilos.
-- `assets/js/app.js`: interfaz y lógica del cliente.
-- `assets/js/config.example.js`: ejemplo de configuración sin credenciales reales.
-- `supabase/migrations/`: esquema de base de datos y políticas versionadas.
-- `docs/`: guía de instalación, permisos, copias de seguridad y migración.
-
-## Estado
-
-Fase inicial: documentación y estructura base. Supabase todavía no está conectado y GitHub Pages no se ha configurado.
-
-## Desarrollo y despliegue
-
-Consulta `docs/SETUP.md` para preparar Supabase y publicar la aplicación.
+## Tecnología
+HTML5, CSS3 y JavaScript nativo. Sin dependencias de compilación. Las tipografías web pueden recurrir a Google Fonts cuando haya conexión; el resto de la aplicación funciona sin conexión con las fuentes locales de reserva.
