@@ -1,0 +1,15 @@
+# Local secrets / environment files
+.env
+.env.*
+!.env.example
+assets/js/config.local.js
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build output
+dist/
+node_modules/
