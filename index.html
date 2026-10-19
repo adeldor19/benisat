@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#681f35">
+  <meta name="description" content="Panel de coordinación del equipo BENISAT.">
+  <title>BENISAT · Mission Control</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="BENISAT inicio">
+        <span class="brand-mark">B<span>·</span></span>
+        <span><strong>BENISAT</strong><small>MISSION CONTROL</small></span>
+      </a>
+      <div class="side-label">CENTRO DE MISIÓN</div>
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav-item active" data-view="inicio"><span>◫</span> Panel general</button>
+        <button class="nav-item" data-view="actuaciones"><span>☷</span> Actuaciones</button>
+        <button class="nav-item" data-view="calendario"><span>▦</span> Calendario</button>
+        <button class="nav-item" data-view="financiacion"><span>↗</span> Financiación</button>
+        <button class="nav-item" data-view="difusion"><span>◎</span> Comunicación</button>
+        <button class="nav-item" data-view="documentacion"><span>▤</span> Documentación</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mission-mini"><span class="status-dot"></span><span><strong>CanSat Spain</strong><small>Temporada 2026–2027</small></span></div>
+        <p>De Jerez al espacio.</p>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb">BENISAT <span>/</span> <span id="crumb-current">Panel general</span></div>
+        <div class="top-actions"><span class="env-tag"><i></i> ENTORNO INICIAL</span><button class="avatar" title="Perfil de usuario" aria-label="Perfil de usuario">BD</button></div>
+      </header>
+      <div class="content">
+        <section class="welcome">
+          <div>
+            <div class="eyebrow">CENTRO DE OPERACIONES · 2026—2027</div>
+            <h1 id="page-title">La misión empieza aquí<span>.</span></h1>
+            <p id="page-description">Un espacio común para coordinar el trabajo, documentar avances y llevar BENISAT de Jerez al espacio.</p>
+          </div>
+          <div class="mission-stamp"><span>BENISAT</span><strong>MISIÓN:<br>DESCUBRIR</strong><small>IES ANDRÉS BENÍTEZ · JEREZ</small></div>
+        </section>
+        <div class="notice"><span class="notice-icon">i</span><div><strong>Versión de preparación</strong><p>La interfaz está creada, pero aún no está conectada a Supabase. Los datos reales y los accesos compartidos se habilitarán después de configurar la base de datos y sus permisos.</p></div></div>
+        <section id="view-content" aria-live="polite">
+          <div class="section-heading"><div><div class="eyebrow">RESUMEN DE MISIÓN</div><h2>Estado del proyecto</h2></div><span class="muted">Temporada CanSat 2026–2027</span></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>Actuaciones abiertas</span><span class="stat-symbol">☷</span></div><div class="stat-value">—</div><p>Se mostrarán al conectar la base de datos</p></article>
+            <article class="stat-card"><div class="stat-top"><span>Próximos hitos</span><span class="stat-symbol">◷</span></div><div class="stat-value">—</div><p>Fechas y entregas del equipo</p></article>
+            <article class="stat-card"><div class="stat-top"><span>Fondos disponibles</span><span class="stat-symbol">€</span></div><div class="stat-value">—</div><p>Ingresos y gastos registrados</p></article>
+            <article class="stat-card"><div class="stat-top"><span>Evidencias</span><span class="stat-symbol">▤</span></div><div class="stat-value">—</div><p>Documentos, pruebas y publicaciones</p></article>
+          </div>
+          <div class="dashboard-grid">
+            <article class="panel">
+              <div class="panel-heading"><div><div class="eyebrow">PLANIFICACIÓN</div><h2>Próximos pasos</h2></div><span class="panel-mark">01</span></div>
+              <div class="empty-state"><span class="empty-icon">＋</span><strong>Tu plan de misión, en un solo lugar</strong><p>Cuando conectemos Supabase podrás asignar responsables, definir prioridades y seguir el estado de cada actuación.</p></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading"><div><div class="eyebrow">CONTROL DE RECURSOS</div><h2>Financiación</h2></div><span class="panel-mark">02</span></div>
+              <div class="funding-placeholder"><div class="funding-circle">€</div><strong>Seguimiento económico transparente</strong><p>Ventas, patrocinios, donaciones, compras y presupuesto disponible.</p><span class="small-tag">PENDIENTE DE CONFIGURACIÓN</span></div>
+            </article>
+          </div>
+          <section class="bottom-banner"><div class="banner-orbit">✳</div><div><div class="eyebrow">IDENTIDAD DE MISIÓN</div><h2>BENISAT · Misión: descubrir</h2><p>Ciencia, tecnología y trabajo en equipo desde el IES Andrés Benítez.</p></div><span class="banner-coordinate">36°41′N<br>6°08′W</span></section>
+        </section>
+        <footer>BENISAT MISSION CONTROL <span>·</span> IES ANDRÉS BENÍTEZ <span>·</span> Proyecto educativo CanSat</footer>
+      </div>
+    </main>
+  </div>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
