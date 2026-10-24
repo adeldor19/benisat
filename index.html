@@ -64,13 +64,54 @@
 </section>
 
 <section class="view" id="view-mision">
-  <div class="page-heading compact"><div><p class="eyebrow">CIENCIA Y TECNOLOGÍA</p><h1>Misión científica<span>.</span></h1><p class="intro">Del sensor a los datos: medir, registrar, analizar y explicar.</p></div></div>
-  <div class="hero mission-hero"><div class="hero-text"><span class="hero-kicker">MISIÓN PRIMARIA · REFERENCIA</span><h2>Medir el descenso.<br>Entender los datos.</h2><p>Registrar temperatura y presión durante el descenso, transmitir telemetría y analizar los resultados.</p></div><div class="mission-symbol">°C<br><span>hPa</span></div></div>
-  <div class="three-cards"><article class="module-card"><span class="module-number">01 / SENSORES</span><h3>Instrumentación</h3><p>ESP32, sensores ambientales, alimentación y comprobaciones de lectura.</p><label>POR DEFINIR</label></article><article class="module-card"><span class="module-number">02 / TELEMETRÍA</span><h3>Comunicación</h3><p>Paquetes de datos, radio asignada, recepción y registro en tierra.</p><label>POR DEFINIR</label></article><article class="module-card"><span class="module-number">03 / ANÁLISIS</span><h3>Datos y resultados</h3><p>Gráficas, interpretación científica, incertidumbre y conclusiones.</p><label>POR DEFINIR</label></article></div>
-  <section class="panel mission-notes"><div class="panel-heading"><div><p class="eyebrow">CUADERNO CIENTÍFICO</p><h2>Notas y observaciones</h2></div></div><form id="note-form" class="note-form"><input id="note-title" placeholder="Título de la observación" maxlength="100" required aria-label="Título"><textarea id="note-body" placeholder="Hipótesis, ensayo, datos o conclusiones…" maxlength="2000" required aria-label="Contenido"></textarea><button class="primary-button" type="submit">Guardar nota</button></form><div id="notes-list"></div></section>
-  <p class="fine-print">La misión secundaria está pendiente de decisión del equipo. Verifica dimensiones, masa, autonomía, radio y demás requisitos en la normativa oficial.</p>
-</section>
+  <div class="page-heading compact"><div><p class="eyebrow">CIENCIA, INGENIERÍA Y FIABILIDAD</p><h1>Misión científica<span>.</span></h1><p class="intro">La misión primaria mide el descenso. La secundaria investiga cómo un sistema puede recuperarse de un fallo electrónico sin intervención humana.</p></div></div>
 
+  <div class="hero mission-hero"><div class="hero-text"><span class="hero-kicker">MISIÓN PRIMARIA · REFERENCIA</span><h2>Medir el descenso.<br>Entender los datos.</h2><p>Registrar temperatura y presión durante el descenso, transmitir telemetría y analizar los resultados. La misión secundaria no modificará estos sensores ni interferirá con sus funciones.</p></div><div class="mission-symbol">°C<br><span>hPa</span></div></div>
+
+  <section class="panel">
+    <div class="panel-heading"><div><p class="eyebrow">MISIÓN SECUNDARIA · AUTONOMOUS CHECK</p><h2>Detectar, conmutar y continuar</h2></div><span class="pill">Diseño inicial</span></div>
+    <p class="mission-lead">Desarrollar y evaluar un sistema de redundancia que detecte un fallo electrónico simulado en un canal de medida auxiliar, active automáticamente un canal de reserva y registre el resultado.</p>
+    <div class="three-cards">
+      <article class="module-card"><span class="module-number">01 / MEDIDA</span><h3>Dos sensores LDR</h3><p>Dos fotorresistencias independientes, cada una con su divisor de tensión y entrada analógica propia del ESP32. El canal A será el principal y el B quedará como respaldo.</p><label>HARDWARE SENCILLO</label></article>
+      <article class="module-card"><span class="module-number">02 / FALLO</span><h3>Inyección electrónica</h3><p>Un circuito de prueba alterará de forma controlada la señal del canal A. La orden de prueba iniciará la incidencia; el supervisor decidirá si debe cambiar al canal B.</p><label>PRUEBA REPETIBLE</label></article>
+      <article class="module-card"><span class="module-number">03 / RECUPERACIÓN</span><h3>Conmutación autónoma</h3><p>El ESP32 identificará la condición de fallo definida, seleccionará el canal de reserva y registrará cuándo se detectó la incidencia y cuándo se recuperó la medida.</p><label>ALGORITMO PROPIO</label></article>
+    </div>
+  </section>
+
+  <div class="dashboard-grid">
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">PROTOCOLO EXPERIMENTAL</p><h2>Cómo se probará</h2></div></div>
+      <div class="milestone-list">
+        <article class="milestone-preview"><div class="date-tile"><strong>01</strong><small>BASE</small></div><div class="milestone-copy"><strong>Funcionamiento normal</strong><p>Registrar las lecturas de ambos canales y comprobar que el sistema opera sin fallos inyectados.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>02</strong><small>FALLO</small></div><div class="milestone-copy"><strong>Alteración controlada</strong><p>Activar el circuito de prueba para modificar la señal del canal A sin provocar cortocircuitos ni reiniciar el ESP32.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>03</strong><small>CAMBIO</small></div><div class="milestone-copy"><strong>Decisión del supervisor</strong><p>El ESP32 detecta la condición de prueba y cambia al canal B sin recibir desde tierra una orden de conmutación.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>04</strong><small>DATOS</small></div><div class="milestone-copy"><strong>Registro y análisis</strong><p>Guardar los eventos, repetir las pruebas y comparar tiempos, muestras perdidas y recuperaciones correctas.</p></div></article>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">INDICADORES</p><h2>Qué vamos a medir</h2></div></div>
+      <div class="milestone-list">
+        <article class="milestone-preview"><div class="date-tile"><strong>ms</strong><small>TIEMPO</small></div><div class="milestone-copy"><strong>Tiempo de detección</strong><p>Intervalo entre la inyección del fallo y su identificación por el supervisor.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>ms</strong><small>CAMBIO</small></div><div class="milestone-copy"><strong>Tiempo de conmutación</strong><p>Tiempo necesario para pasar del canal A al canal B.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>N</strong><small>MUESTRAS</small></div><div class="milestone-copy"><strong>Muestras perdidas</strong><p>Número de lecturas ausentes o inválidas durante la transición.</p></div></article>
+        <article class="milestone-preview"><div class="date-tile"><strong>%</strong><small>ÉXITO</small></div><div class="milestone-copy"><strong>Recuperaciones correctas</strong><p>Porcentaje de ensayos en los que el sistema completa la conmutación prevista.</p></div></article>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel mission-notes">
+    <div class="panel-heading"><div><p class="eyebrow">PLAN DE DESARROLLO</p><h2>Próximos pasos</h2></div></div>
+    <div class="three-cards">
+      <article class="module-card"><span class="module-number">FASE 1</span><h3>Montaje</h3><p>Conectar las dos LDR con divisores independientes y verificar las lecturas analógicas del ESP32.</p><label>PENDIENTE</label></article>
+      <article class="module-card"><span class="module-number">FASE 2</span><h3>Supervisor y fallos</h3><p>Programar la lógica de detección y conmutación; incorporar el circuito de inyección electrónica segura.</p><label>PENDIENTE</label></article>
+      <article class="module-card"><span class="module-number">FASE 3</span><h3>Validación</h3><p>Realizar ensayos repetidos, guardar los resultados y evaluar la integración en el CanSat sin interferir con la misión primaria.</p><label>PENDIENTE</label></article>
+    </div>
+    <p class="fine-print">La simulación demuestra la respuesta ante un fallo controlado concreto; no equivale a garantizar la detección de cualquier avería física. La integración final queda condicionada a la revisión de masa, alimentación, seguridad y normativa CanSat 2026–2027.</p>
+  </section>
+
+  <section class="panel mission-notes"><div class="panel-heading"><div><p class="eyebrow">CUADERNO CIENTÍFICO</p><h2>Notas y observaciones</h2></div></div><form id="note-form" class="note-form"><input id="note-title" placeholder="Título de la observación" maxlength="100" required aria-label="Título"><textarea id="note-body" placeholder="Hipótesis, ensayo, datos o conclusiones…" maxlength="2000" required aria-label="Contenido"></textarea><button class="primary-button" type="submit">Guardar nota</button></form><div id="notes-list"></div></section>
+  <p class="fine-print">Los sensores LDR y el circuito de fallo pertenecen a la misión secundaria experimental. No sustituyen ni modifican los sensores primarios de temperatura y presión. Verifica dimensiones, masa, autonomía, radio y demás requisitos en la normativa oficial.</p>
+</section>
 <section class="view" id="view-presupuesto">
   <div class="page-heading compact"><div><p class="eyebrow">RECURSOS</p><h1>Presupuesto<span>.</span></h1><p class="intro">Controla compras, aportaciones y gastos de la misión.</p></div></div>
   <div class="stats-grid budget-stats"><article class="stat-card"><div class="stat-top"><span>LÍMITE DE REFERENCIA</span><span class="stat-icon">€</span></div><strong>500 €</strong><p>Tope de referencia del satélite.</p></article><article class="stat-card"><div class="stat-top"><span>GASTO NETO</span></div><strong id="spent-total">0 €</strong><p>Gastos menos aportaciones.</p></article><article class="stat-card"><div class="stat-top"><span>DISPONIBLE</span></div><strong id="remaining-total">500 €</strong><p>Estimación sobre el límite.</p></article></div>
